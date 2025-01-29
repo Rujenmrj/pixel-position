@@ -12,11 +12,15 @@ export default {
     theme: {
         extend: {
             fontFamily: {
+                "hanken-grotesk": ['Hanken Grotesk', "sans-serif"],
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
             colors:{
-                black: '#060606',
-            }
+                "black": '#060606',
+            },
+            fontSize: {
+                '2xs': '.625rem',
+            },
         },
     },
     plugins: [],
