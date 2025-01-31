@@ -12,12 +12,12 @@
     rel="stylesheet">
     @vite(['resources/js/app.js'])
 </head>
-<body class="bg-black text-white font-hanken-grotesk">
+<body class="bg-black text-white font-hanken-grotesk pb-20">
 
     <div class="px-10">
         <nav class="flex font-bold items-center justify-between mx-10 border-b border-white/10 py-4">
             <div>
-                <a href="">
+                <a href="/">
                     <img src="{{ Vite::asset('resources/images/logo.svg') }}" alt="">
                 </a>
             </div>
@@ -27,9 +27,18 @@
                 <a href="">Salaries</a>
                 <a href="">Companies</a>
             </div>
+
+            @auth
             <div>
-                <a href="">Post a Job</a>
+                <a href="/jobs/create">Post a Job</a>
             </div>
+            @endauth
+
+            @guest
+                <div class="font-bold space-x-6">
+                    <a href="/register">Register</a>
+                    <a href="/login">Log In</a>
+            @endguest
         </nav>
         <main class="mt-10 max-w-[986px] mx-auto">
             {{ $slot }}
