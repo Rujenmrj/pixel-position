@@ -22,16 +22,22 @@
                 </a>
             </div>
             <div class="font-bold space-x-6">
-                <a href="">Jobs</a>
-                <a href="">Careers</a>
-                <a href="">Salaries</a>
-                <a href="">Companies</a>
+                <a href="/">Jobs</a>
+                <a href="/salaries">Salaries</a>
+                <a href="/companies">Companies</a>
             </div>
 
             @auth
+            <div class="flex items-center space-x-6">
             <div>
                 <a href="/jobs/create">Post a Job</a>
             </div>
+
+                <form action="/logout" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit">Log Out</button>
+                </form>
             @endauth
 
             @guest

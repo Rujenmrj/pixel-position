@@ -23,6 +23,7 @@ class RegisteredUserController extends Controller
         $employerAttributes =$request->validate([
             'employer' => 'required',
             'logo'=> 'required|mimes:png,jpg,jpeg|max:2048',
+            'link' => 'required|active_url'
         ]);
 
         $user = User::create($userAttributes);
@@ -31,7 +32,8 @@ class RegisteredUserController extends Controller
 
         $user->employer()->create([
             'name' => $employerAttributes['employer'],
-            'logo' => 'storage'.$logopath
+            'url' => $employerAttributes['link'],
+            'logo' => $logopath
         ]);
         Auth::login($user);
         return redirect('/');

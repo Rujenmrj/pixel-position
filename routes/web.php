@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmployerController;
 use App\Http\Controllers\JobController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisteredUserController;
@@ -25,5 +26,8 @@ Route::middleware('guest')->group(function(){
     Route::post('/login', [SessionController::class,'store']);
 });
 
+Route::get('/companies', EmployerController::class);
 
-Route::delete('/login', [SessionController::class,'desrtoy'])->middleware('auth');
+Route::get('/salaries', EmployerController::class);
+
+Route::delete('/logout', [SessionController::class,'destroy'])->middleware('auth');

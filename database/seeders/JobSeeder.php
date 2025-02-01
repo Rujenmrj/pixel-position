@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Database\Seeder;
 use App\Models\Job;
 use App\Models\Tag;
+use Nette\Utils\Random;
 
 class JobSeeder extends Seeder
 {

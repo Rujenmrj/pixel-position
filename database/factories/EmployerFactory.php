@@ -19,7 +19,8 @@ class EmployerFactory extends Factory
     {
         return [
             'name'=>fake()->name,
-            'logo'=>fake()->imageUrl(),
+            'logo'=>'logos/xGcBcydPerw4XVRY1M2X57P4QRCU1ewWNcjzaUjD.jpg',
+            'url'=>fake()->unique()->url,
             'user_id'=> User::factory(),
         ];
     }

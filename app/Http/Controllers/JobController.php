@@ -18,26 +18,24 @@ class JobController extends Controller
      */
     public function index()
     {
-        $job = Job::with('employer','tags')->latest()->get()->groupBy('featured');
+        $job = Job::query()
+            ->with(['employer','tags'])
+            ->latest()
+            ->get()
+            ->groupBy('featured');
         return view('jobs.index',
         [
-            'featured'=>$job[0],
-            'jobs' => $job[1],
+            'featured'=>$job[1],
+            'jobs' => $job[0],
             'tags'=>Tag::all()
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('jobs.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $attributes = $request->validate([

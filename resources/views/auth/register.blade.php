@@ -9,6 +9,7 @@
 
         <x-forms.divider />
         <x-forms.input label="Employer Name" name="employer" />
+        <x-forms.input label="Company Link" name="link" />
         <x-forms.input label="Employer logo" name="logo"  type="file" />
 
         <x-forms.button>Create Account</x-forms.button>
