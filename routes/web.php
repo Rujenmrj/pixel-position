@@ -17,6 +17,7 @@ Route::get('/tags/{tag:name}', TagController::class);
 
 Route::get('/jobs/create', [JobController::class,'create'])->middleware('auth');
 Route::post('/jobs', [JobController::class,'store'])->middleware('auth');
+Route::get('/salaries', [JobController::class,'show']);
 
 Route::middleware('guest')->group(function(){
     Route::get('/register', [RegisteredUserController::class,'create']);
@@ -27,7 +28,5 @@ Route::middleware('guest')->group(function(){
 });
 
 Route::get('/companies', EmployerController::class);
-
-Route::get('/salaries', EmployerController::class);
 
 Route::delete('/logout', [SessionController::class,'destroy'])->middleware('auth');

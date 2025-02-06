@@ -11,11 +11,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 
+use function Pest\Laravel\get;
+
 class JobController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $job = Job::query()
@@ -54,5 +53,15 @@ class JobController extends Controller
             }
         }
         return redirect('/');
+    }
+    public function show(){
+        $jobs=Job::query()
+            ->with(['employer','tags'])
+            ->get()
+            ->sortByDesc('salary');
+            // dd($jobs);
+        return view('salaries',[
+            'jobs'=>$jobs
+        ]);
     }
 }

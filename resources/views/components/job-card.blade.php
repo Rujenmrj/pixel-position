@@ -6,7 +6,7 @@
         <h3 class="text-xl font-bold group-hover:text-blue-800 transition-colors duration-800">
             <a href="{{ $job->url }}" target="_blank">{{ $job->title }}</a>
         </h3>
-        <p class="text-sm mt-4">{{ $job->schedule }} - From {{ $job->salary }}</p>
+        <p class="text-sm mt-4">{{ $job->schedule }} - From ${{ $job->salary }} USD</p>
     </div>
 
     <div class="flex justify-between items-center mt-auto w-full">
